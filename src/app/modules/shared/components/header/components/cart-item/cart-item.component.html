@@ -1,0 +1,29 @@
+<div class="cart-item">
+  <div
+    class="cart-item__image"
+    [style.backgroundImage]="'url(' + imageUrl + ')'"
+  ></div>
+  <div class="cart-item__details">
+    <div class="cart-item__name">
+      <span class="cart-item__arrow">{{ name | slice: 0:13 }}</span>
+    </div>
+    <div class="cart-item__price">
+      <button
+        mat-icon-button
+        class="cart-item__arrow"
+        (click)="arrowClick('remove')"
+      >
+        &#10094;
+      </button>
+      <div>{{ quantity }}</div>
+      <button
+        mat-icon-button
+        class="cart-item__arrow"
+        (click)="arrowClick('add')"
+      >
+        &#10095;
+      </button>
+      <div>x {{ price | currency }}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+export enum RedirectActionTypes {
+  SET_REDIRECT = '[REDIRECT] SET_REDIRECT',
+  CLEAR_REDIRECT = '[REDIRECT] CLEAR_REDIRECT',
+}

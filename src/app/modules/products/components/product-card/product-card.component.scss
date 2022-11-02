@@ -1,0 +1,21 @@
+@import "variables";
+.reactions-container {
+  padding-left: 1rem;
+  color: $primary;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reactions__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.product-card__no-stock {
+  color: $warn;
+}

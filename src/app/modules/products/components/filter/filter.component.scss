@@ -1,0 +1,24 @@
+@import "variables";
+
+.filter__sort {
+  display: flex;
+  flex-direction: column;
+
+  &--group {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.filter__category {
+  &--group {
+    max-height: 17.1rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,40 @@
+@import "variables";
+
+.cart {
+  position: absolute;
+  color: $accent;
+  width: 240px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: $primary-800;
+  top: 0;
+  right: -5rem;
+  z-index: 5;
+  // overflow-y: auto;
+
+  &__empty {
+    font-size: 18px;
+    margin: 50px auto;
+  }
+
+  &__items {
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  &__button {
+    margin-top: auto;
+    border: none;
+    color: $primary;
+  }
+}
+
+::ng-deep.cart__button {
+  border: 0px;
+  color: $primary;
+  font-weight: bold;
+}

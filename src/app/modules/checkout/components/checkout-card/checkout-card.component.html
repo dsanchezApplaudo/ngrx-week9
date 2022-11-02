@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card__image">
+    <div
+      class="card__image--image"
+      [style.backgroundImage]="'url(' + imageUrl + ')'"
+      alt="item"
+    ></div>
+  </div>
+  <span class="card__name">{{ name }}</span>
+  <span class="card__quantity">
+    <button
+      (click)="arrowClick('remove')"
+      class="card__arrow"
+      color="primary"
+      mat-icon-button
+    >
+      &#10094;
+    </button>
+    <span class="card__value">{{ quantity }}</span>
+    <button
+      (click)="arrowClick('add')"
+      class="card__arrow"
+      color="primary"
+      mat-icon-button
+    >
+      &#10095;
+    </button>
+  </span>
+  <span class="card__price">{{ price | currency }}</span>
+  <button
+    (click)="clearClick()"
+    mat-icon-button
+    color="primary"
+    class="card__remove-button"
+  >
+    &#10005;
+  </button>
+</div>

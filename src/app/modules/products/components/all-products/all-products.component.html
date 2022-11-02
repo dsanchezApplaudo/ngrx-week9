@@ -1,0 +1,15 @@
+<mat-spinner class="spinner" *ngIf="productsLoading$ | async"></mat-spinner>
+<div *ngIf="!(productsLoading$ | async)" class="all-products">
+  <app-product-card
+    *ngFor="let product of products$ | async"
+    [name]="product.name"
+    [description]="product.description"
+    [created]="product.published_at"
+    [imageUrl]="product?.image?.url || 'assets/images/home/shop.jpg'"
+    [likes]="product.likes_up_count"
+    [slug]="product.slug"
+    [productId]="product.id"
+    [price]="product.master.price"
+    [stock]="+product.master.stock"
+  ></app-product-card>
+</div>

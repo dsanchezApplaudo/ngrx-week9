@@ -1,0 +1,38 @@
+<div class="product">
+  <!-- <div class="product__categories">
+    <div *ngFor="let category of categories$ | async" class="product__category">
+      {{ category.name }}
+    </div>
+  </div> -->
+  <button
+    class="product__filter-button"
+    mat-fab
+    color="primary"
+    (click)="toggleFilter()"
+  >
+    <mat-icon>{{ filterOpened ? "close" : "add" }}</mat-icon>
+  </button>
+  <div class="product__banner">
+    <div class="product__banner-content">
+      <h1>Latest Products</h1>
+    </div>
+  </div>
+  <mat-drawer-container class="product__container">
+    <mat-drawer mode="over" [opened]="filterOpened">
+      <app-filter></app-filter>
+    </mat-drawer>
+    <mat-drawer-content class="product__content">
+      <router-outlet></router-outlet>
+      <mat-paginator
+        *ngIf="pagination"
+        class="product__paginator"
+        [length]="productsLength$ | async"
+        [pageSize]="productsSize"
+        [pageIndex]="currentPage"
+        (page)="eventClick($event)"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

@@ -1,0 +1,39 @@
+<div class="product-card">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ name }}</mat-card-title>
+      <mat-card-title>{{ price | currency }}</mat-card-title>
+      <mat-card-subtitle>{{ created | date }}</mat-card-subtitle>
+      <mat-card-subtitle [class]="stock <= 0 ? 'product-card__no-stock' : ''">
+        {{ stock <= 0 ? "No Stock Available" : "Available" }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      #img
+      [src]="imageUrl ? imageUrl : ''"
+      [alt]="name + 'picture'"
+      (error)="onImgError(img)"
+    />
+    <mat-card-content>
+      <p>{{ description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="reactions-container">
+        <div class="reactions__item">
+          <mat-icon>thumb_up</mat-icon>
+          <span>{{ likes }}</span>
+        </div>
+        <button color="primary" mat-button (click)="handleClick()">View</button>
+        <button
+          *ngIf="stock > 0"
+          color="primary"
+          mat-button
+          (click)="addToCartClick()"
+        >
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

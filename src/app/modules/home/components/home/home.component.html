@@ -1,0 +1,19 @@
+<div class="home">
+  <div class="home__content">
+    <h1 class="home__title"></h1>
+  </div>
+  <div class="home__items">
+    <div class="home__item">
+      <div class="home__container" (click)="handleClick('products')">
+        <h1 class="home__subtitle">{{ "Shop" | uppercase }}</h1>
+      </div>
+      <div class="home__image home__image--shop"></div>
+    </div>
+    <div class="home__item">
+      <div class="home__container" (click)="handleClick('categories')">
+        <h1 class="home__subtitle">{{ "Categories" | uppercase }}</h1>
+      </div>
+      <div class="home__image home__image--categories"></div>
+    </div>
+  </div>
+</div>

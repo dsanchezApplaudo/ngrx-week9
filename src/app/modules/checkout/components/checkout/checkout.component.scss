@@ -1,0 +1,69 @@
+@import "variables";
+
+$app-width: 100%;
+
+.checkout {
+  width: 80vw;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto 0;
+  color: $accent-700;
+  overflow-x: auto;
+
+  @media (max-width: 721px) {
+    width: 90%;
+  }
+
+  &__header {
+    width: $app-width;
+    display: flex;
+    border-bottom: 1px solid $primary;
+    padding: 0.6rem 0;
+    gap: 0.5rem;
+    justify-content: space-between;
+    // display: flex;
+
+    & > :last-child {
+      width: 4rem;
+    }
+  }
+
+  &__item {
+    text-transform: capitalize;
+    width: 8rem;
+  }
+
+  &__total {
+    width: $app-width;
+    text-align: end;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 721px) {
+      text-align: left;
+    }
+  }
+
+  &__place-order {
+    width: 12rem;
+    align-self: flex-end;
+    text-transform: uppercase;
+    font-size: larger;
+
+    @media (max-width: 721px) {
+      align-self: flex-start;
+    }
+  }
+
+  &__card {
+    width: $app-width;
+  }
+
+  &__header,
+  &__card,
+  &__total {
+    min-width: 30rem;
+  }
+}

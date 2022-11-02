@@ -1,0 +1,71 @@
+@import "variables";
+.header {
+  width: 100vw;
+  height: $header-height;
+  box-shadow: 0 8px 6px -10px black;
+  color: $accent;
+  position: relative;
+  background-color: $primary-darker;
+
+  &__container {
+    height: $header-height;
+    max-width: 87rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 0.7rem 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: $primary-800;
+      cursor: pointer;
+    }
+
+    &--dropdown {
+      padding: 0 1rem;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__cart {
+    position: absolute;
+    top: $header-height;
+  }
+
+  &__cart-container {
+    position: relative;
+  }
+
+  &__cart-number {
+    position: absolute;
+    top: 0%;
+    font-size: xx-small;
+    left: 46%;
+    background-color: $warn;
+    width: 1rem;
+    height: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+}

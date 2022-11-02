@@ -1,0 +1,47 @@
+@import "variables";
+
+.product {
+  min-height: calc(100vh - $header-height);
+  position: absolute;
+
+  &__filter-button {
+    position: relative;
+    top: 11rem;
+    left: 2rem;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__banner {
+    margin-top: 2rem;
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../../../assets/images/home/banner.jpg");
+    background-size: cover;
+  }
+
+  &__banner-content {
+    color: $primary;
+  }
+
+  &__paginator {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  &__content {
+    height: calc(100vh - $header-height);
+    overflow: auto;
+    width: 100vw;
+  }
+}

@@ -1,0 +1,88 @@
+<div class="filter-sidebar">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="(nameOpen === true)"
+      (closed)="(nameOpen === false)"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Filter By Name </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="filter_name">
+        <mat-form-field
+          color="primary"
+          class="filter__name-filed"
+          appearance="fill"
+        >
+          <mat-label>Search Product</mat-label>
+          <input matInput type="text" [formControl]="inputValue" />
+          <button
+            *ngIf="inputValue.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="(categoryOpen === true)"
+      (closed)="(categoryOpen === false)"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Filter By Category </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="filter__category">
+        <mat-radio-group
+          color="primary"
+          aria-labelledby="filter__category"
+          class="filter__category--group"
+          [formControl]="categoryValue"
+        >
+          <mat-radio-button class="category-radio-button" [value]=""
+            >AllCategories
+          </mat-radio-button>
+          <mat-radio-button
+            *ngFor="let category of categories$ | async"
+            class="category-radio-button"
+            [value]="category.slug"
+            >{{ category.name }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="(sortOpen === true)"
+      (closed)="(sortOpen === false)"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Sort by name </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="filter__sort">
+        <mat-radio-group
+          color="primary"
+          aria-labelledby="example-radio-group-label"
+          class="filter__sort--group"
+          [formControl]="sortValue"
+        >
+          <mat-radio-button class="sort-radio-button" value=""
+            >No sorting
+          </mat-radio-button>
+          <mat-radio-button class="sort-radio-button" value="asc"
+            >Ascending
+          </mat-radio-button>
+          <mat-radio-button class="sort-radio-button" value="desc"
+            >Descending
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

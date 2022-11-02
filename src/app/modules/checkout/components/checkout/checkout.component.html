@@ -1,0 +1,41 @@
+<div class="checkout">
+  <div class="checkout__header">
+    <div class="checkout__item">
+      <span>Product</span>
+    </div>
+    <div class="checkout__item">
+      <span>Description</span>
+    </div>
+    <div class="checkout__item">
+      <span>Quantity</span>
+    </div>
+    <div class="checkout__item">
+      <span>Price</span>
+    </div>
+    <div class="checkout__item">
+      <span>Remove</span>
+    </div>
+  </div>
+  <div class="checkout__card">
+    <app-checkout-card
+      *ngFor="let item of cart$ | async"
+      [name]="item.name"
+      [price]="item.price"
+      [productId]="item.product_id"
+      [imageUrl]="item.imageUrl"
+      [quantity]="item.quantity"
+    ></app-checkout-card>
+  </div>
+  <div class="checkout__total">
+    <span> TOTAL: {{ cartTotal$ | async | currency }} </span>
+  </div>
+  <button
+    class="checkout__place-order"
+    (click)="handlePlaceOrder()"
+    mat-raised-button
+    color="primary"
+    [disabled]="cartEmpty$ | async"
+  >
+    Place Order
+  </button>
+</div>

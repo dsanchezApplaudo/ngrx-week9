@@ -1,0 +1,22 @@
+<div class="cart">
+  <span *ngIf="empty$ | async" class="cart__empty">Your Cart is Empty</span>
+  <div class="cart__items">
+    <app-cart-item
+      *ngFor="let item of cartItems$ | async"
+      [name]="item.name"
+      [price]="item.price"
+      [imageUrl]="item.imageUrl"
+      [quantity]="item.quantity"
+      [productId]="item.product_id"
+    ></app-cart-item>
+  </div>
+  <!-- [disabled]="empty$ | async" -->
+  <button
+    class="cart__button"
+    mat-raised-button
+    color="accent"
+    (click)="handleClick()"
+  >
+    {{ "Go to checkout" | uppercase }}
+  </button>
+</div>

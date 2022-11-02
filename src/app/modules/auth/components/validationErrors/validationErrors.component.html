@@ -1,0 +1,20 @@
+<div class="errors" *ngIf="!control.valid && control.touched">
+  <span class="error" *ngIf="control.errors?.['passwordsMatch']"
+    >*Passwords should match</span
+  >
+  <span class="error" *ngIf="control.errors?.['required']">*Required</span>
+  <span class="error" *ngIf="control.errors?.['minlength']"
+    >*Should be at least
+    {{control.errors?.['minlength']?.requiredLength}} characters long</span
+  >
+  <span class="error" *ngIf="control.errors?.['maxlength']"
+    >*Should be no more than
+    {{control.errors?.['maxlength']?.requiredLength}} characters long</span
+  >
+  <span class="error" *ngIf="control.errors?.['dateMinor']"
+    >*Date shuld be before current date</span
+  >
+  <span class="error" *ngIf="control.errors?.['email']"
+    >*Enter a valid email</span
+  >
+</div>

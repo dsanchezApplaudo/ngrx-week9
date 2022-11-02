@@ -1,0 +1,81 @@
+<div class="specific">
+  <div class="specific__container">
+    <div
+      *ngIf="product && product.image"
+      class="specific__image"
+      [style.backgroundImage]="
+        product.image.url || 'url(' + 'assets/images/home/shop.jpg' + ')'
+      "
+    ></div>
+    <div *ngIf="product" class="specific__information">
+      <div class="specific__basic">
+        <h1 class="specific__name">{{ product.name }}</h1>
+        <h3 class="specific__price">{{ product.master.price | currency }}</h3>
+        <h4 class="specific__price">#{{ product.category.name }}</h4>
+        <h4 *ngIf="+product.master.stock === 0" class="specific__no-stock">
+          No Stock Available
+        </h4>
+        <p class="specific__description">
+          {{ product.description }}
+        </p>
+      </div>
+      <div class="specific__icons">
+        <button mat-icon-button (click)="likeProduct('up')">
+          <mat-icon
+            [fontSet]="thumbUp ? liked : unliked"
+            class="specific__icon--up"
+            >thumb_up</mat-icon
+          >
+        </button>
+        <button mat-icon-button (click)="likeProduct('down')">
+          <mat-icon
+            [fontSet]="thumbDown ? liked : unliked"
+            class="specific__icon--down"
+            >thumb_down</mat-icon
+          >
+        </button>
+      </div>
+      <div class="specific__input-container">
+        <form
+          [formGroup]="quantityForm"
+          (ngSubmit)="handleSubmit()"
+          class="specific__input-container"
+        >
+          <label for="quantity">Quantity:</label>
+
+          <input
+            formControlName="quantity"
+            name="quantity"
+            class="specific__quantity"
+          />
+
+          <div
+            class="errors specific__errors"
+            *ngIf="!quantityControl.valid && quantityControl.touched"
+          >
+            <span class="error" *ngIf="quantityControl.errors?.['required']"
+              >*Required</span
+            >
+            <span class="error" *ngIf="quantityControl.errors?.['pattern']"
+              >*Should be a positive number</span
+            >
+            <span class="error" *ngIf="quantityControl.errors?.['min']"
+              >*Should be greater than
+              {{quantityControl.errors?.['min']?.min}}
+            </span>
+          </div>
+
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="specific__add-item"
+            [disabled]="quantityForm.invalid || +product.master.stock === 0"
+          >
+            Add To Cart
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
